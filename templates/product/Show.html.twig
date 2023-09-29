@@ -1,0 +1,27 @@
+{# templates/product/show.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du Produit{% endblock %}
+
+{% block body %}
+    <h1>Détails du Produit</h1>
+
+    <dl class="row">
+        <dt class="col-sm-3">ID</dt>
+        <dd class="col-sm-9">{{ product.id }}</dd>
+
+        <dt class="col-sm-3">Nom</dt>
+        <dd class="col-sm-9">{{ product.name }}</dd>
+
+        <dt class="col-sm-3">Prix</dt>
+        <dd class="col-sm-9">{{ product.price }}</dd>
+        <dt class="col-sm-3">Category</dt>
+        <dd class="col-sm-9">{{ product.category }}</dd>
+
+        <dt class="col-sm-3">Description</dt>
+        <dd class="col-sm-9">{{ product.description }}</dd>
+    </dl>
+
+    <a href="{{ path('product_index') }}" class="btn btn-primary">Retour à la liste des produits</a>
+{% endblock %}

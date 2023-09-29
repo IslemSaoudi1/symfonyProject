@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un Nouveau Produit{% endblock %}
+
+{% block body %}
+    <h1>Créer un Nouveau Produit</h1>
+
+
+    {{ form_start(form, {'attr': {'class': 'custom-form-class'}}) }}
+
+    <div class="form-group">
+        {{ form_label(form.name, 'Nom du produit') }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+        {% if form_errors(form.name) %}
+        <div class="error">{{ form_errors(form.name) }}</div>
+    {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.price, 'Prix', {'label_attr': {'class': 'custom-label'}}) }}
+        {{ form_widget(form.price, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.price) }}
+        <script>
+            if (validatePrice(price)) {
+                console.log("Price is valid");
+            } else {
+                console.log("Price is not valid");
+            }
+        </script>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.description, 'Description', {'label_attr': {'class': 'custom-label'}}) }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.description) }}
+    </div>
+ <div class="form-group">
+        {{ form_label(form.category, 'Category', {'label_attr': {'class': 'custom-label'}}) }}
+        {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.category) }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Créer</button>
+    <a href="{{ path('product_index') }}" class="btn btn-secondary">Annuler</a>
+
+    {{ form_end(form) }}
+{% endblock %}
